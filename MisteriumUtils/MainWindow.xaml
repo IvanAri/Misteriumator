@@ -1,0 +1,42 @@
+﻿<Window x:Class="MisteriumUtils.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MisteriumUtils"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Background="#16110E">
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <TabControl Background="#B4A083">
+            <TabItem Header="Тест1" Background="#A79272" Height="50" Width="100">
+                <Grid>
+                    <TextBlock FontSize="30" Text="{Binding TestString}"/>
+                    
+                    <ComboBox ItemsSource="{Binding TestObject}" SnapsToDevicePixels="True" Width="200" Height="50" Background="#C8FFE8" Focusable="False">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Background="#B4A083">
+                                    <TextBlock Margin="5" TextWrapping="Wrap" Width="200" Height="50">
+                                            <Run Text="{Binding TestString1}" FontSize="23"/>
+                                            <Run Text="   " FontSize="23"/>
+                                            <Run Text="{Binding TestString2}" FontSize="23"/>
+                                    </TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    
+                </Grid>
+            </TabItem>
+            <TabItem Header="Тест2" Background="#A79272" Height="50" Width="100">
+                
+            </TabItem>
+            <TabItem Header="Тест2" Background="#A79272" Height="50" Width="100">
+                
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
