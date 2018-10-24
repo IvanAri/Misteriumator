@@ -13,22 +13,41 @@
         <TabControl Background="#B4A083">
             <TabItem Header="Тест1" Background="#A79272" Height="50" Width="100">
                 <Grid>
-                    <TextBlock FontSize="30" Text="{Binding TestString}"/>
-                    
-                    <ComboBox ItemsSource="{Binding TestObject}" SnapsToDevicePixels="True" Width="200" Height="50" Background="#C8FFE8" Focusable="False">
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Background="#B4A083">
-                                    <TextBlock Margin="5" TextWrapping="Wrap" Width="200" Height="50">
-                                            <Run Text="{Binding TestString1}" FontSize="23"/>
-                                            <Run Text="   " FontSize="23"/>
-                                            <Run Text="{Binding TestString2}" FontSize="23"/>
-                                    </TextBlock>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                    </ComboBox>
-                    
+                    <ScrollViewer Width="500" HorizontalAlignment="Left" VerticalScrollBarVisibility="Auto">
+                        <ItemsControl ItemsSource="{Binding TestList}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Margin="5">
+                                        <TextBlock>
+                                            <Run Text="{Binding Name}" FontSize="20"/>
+                                        </TextBlock>
+                                        <ItemsControl Width="400" HorizontalAlignment="Left" ItemsSource="{Binding PropertyList}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="{Binding NameAbility}" Margin="0 0 10 0"/>
+                                                        <TextBlock Text="{Binding SelectedAbility.Level}" Margin="0 0 10 0"/>
+                                                        <ComboBox ItemsSource="{Binding PropertyDescription}" SnapsToDevicePixels="True" SelectedIndex="0" SelectedItem="{Binding SelectedAbility}">
+                                                            <ComboBox.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <StackPanel>
+                                                                        <TextBlock>
+                                                                        <Run Text="Уровень   "/>
+                                                                        <Run Text="{Binding Level}"/>
+                                                                        </TextBlock>
+                                                                    </StackPanel>
+                                                                </DataTemplate>
+                                                            </ComboBox.ItemTemplate>
+                                                        </ComboBox>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
                 </Grid>
             </TabItem>
             <TabItem Header="Тест2" Background="#A79272" Height="50" Width="100">

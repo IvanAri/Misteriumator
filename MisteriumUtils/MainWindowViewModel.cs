@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using MisteriumUtils;
 
 namespace MisteriumUtils
 {
@@ -13,25 +14,125 @@ namespace MisteriumUtils
     {
         public MainWindowViewModel()
         {
-            TestObject = new List<TestClass>
+            TestList = new List<DataBaseObj>
             {
-                new TestClass
+                TestObject,
+                new DataBaseObj
                 {
-                    TestString1 = "lol11",
-                    TestString2 = "lol12"
+                    Name = "Магистр сосистр",
+                    ObjType = "Class",
+                    PropertyList = new List<Property>
+                    {
+                        new Property
+                        {
+                            NameAbility = "Чёт там на жесты",
+                            PropertyDescription = new List<AbilityLevelProperty>
+                            {
+                                new AbilityLevelProperty
+                                {
+                                    Description = "",
+                                    Level = 0
+                                },
+                                new AbilityLevelProperty
+                                {
+                                    Description = "",
+                                    Level = 1
+                                },
+                                new AbilityLevelProperty
+                                {
+                                    Description = "",
+                                    Level = 2
+                                },
+                            }
+                        },
+                        new Property
+                        {
+                            NameAbility = "Высшая магия",
+                            PropertyDescription = new List<AbilityLevelProperty>
+                            {
+                                new AbilityLevelProperty
+                                {
+                                    Description = "",
+                                    Level = 0
+                                },
+                                new AbilityLevelProperty
+                                {
+                                    Description = "",
+                                    Level = 1
+                                },
+                                new AbilityLevelProperty
+                                {
+                                    Description = "",
+                                    Level = 2
+                                },
+                            }
+                        },
+                    }
                 },
-                new TestClass
-                {
-                    TestString1 = "lol21",
-                    TestString2 = "lol22"
-                }
+                TestObject,
+                TestObject,
             };
         }
 
+        public List<DataBaseObj> TestList { get; set; }
+
+        public DataBaseObj SelectedItem { get; set; }
+
+        public DataBaseObj TestObject { get; set; } = new DataBaseObj
+        {
+            Name = "Класс Ассасина Йоу",
+            ObjType = "Class",
+            PropertyList = new List<Property>
+            {
+                new Property
+                {
+                    NameAbility = "Дух скрытности",
+                    PropertyDescription = new List<AbilityLevelProperty>
+                    {
+                        new AbilityLevelProperty
+                        {
+                            Description = "",
+                            Level = 0
+                        },
+                        new AbilityLevelProperty
+                        {
+                            Description = "",
+                            Level = 1
+                        },
+                        new AbilityLevelProperty
+                        {
+                            Description = "",
+                            Level = 2
+                        },
+                    }
+                },
+                new Property
+                {
+                    NameAbility = "Проворность лососина",
+                    PropertyDescription = new List<AbilityLevelProperty>
+                    {
+                        new AbilityLevelProperty
+                        {
+                            Description = "",
+                            Level = 0
+                        },
+                        new AbilityLevelProperty
+                        {
+                            Description = "",
+                            Level = 1
+                        },
+                        new AbilityLevelProperty
+                        {
+                            Description = "",
+                            Level = 2
+                        },
+                    }
+                },
+            }
+        };
+
         public string TestString { get; set; } = "lol";
-
-        public List<TestClass> TestObject { get; set; }
-
+        
 
         public class TestClass
         {

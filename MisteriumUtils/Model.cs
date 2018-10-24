@@ -7,14 +7,14 @@ using Json;
 
 namespace MisteriumUtils
 {
-    class DataBaseObj
+    public class DataBaseObj
     {
         public string Name { get; set; }
 
         /// <summary>
         /// Тип объекта. Класс/Владение оружием/Магия...
         /// </summary>
-        public string Type { get; set; }
+        public string ObjType { get; set; }
         
         /// <summary>
         /// Список способностей
@@ -26,10 +26,12 @@ namespace MisteriumUtils
     {
         public string NameAbility { get; set; }
 
+        public AbilityLevelProperty SelectedAbility { get; set; }
+
         /// <summary>
         /// Список уровней спосбоности и отдельно абилки каждого уровня.
         /// </summary>
-        public List<List<AbilityLevelProperty>> PropertyDescription { get; set; }
+        public List<AbilityLevelProperty> PropertyDescription { get; set; }
     }
 
     public class AbilityLevelProperty
